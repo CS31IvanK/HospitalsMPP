@@ -16,6 +16,6 @@ CSV.open("Hospitals.csv", "wb") do |csv|
       country = tds[2].text
       city = tds[3].text
 
-   csv <<[rank, name, url, country, city]#, location]
+   csv <<[rank, name, url, country, city, location]
  end
 end
