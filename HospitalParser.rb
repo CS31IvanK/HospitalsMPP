@@ -7,7 +7,7 @@ doc = Nokogiri::HTML(URI.open(url, "User-Agent" => "Mozilla/5.0"))
 hospitals = doc.css('div#block-ibtmedia-rankings-rankings-hospital-desktop > div > div.article-table.ranking-long-table > table > tbody > tr')
 
 CSV.open("Hospitals.csv", "wb") do |csv|
-    csv<<["Rank", "HName", "URL", "Country", "City"]#, "State(U.S. only)"]
+    csv<<["Rank", "HName", "URL", "Country", "City", "State(U.S. only)"]
     hospitals.each do |hospital|
       tds = hospital.css('td')
       rank = tds[0].text
