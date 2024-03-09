@@ -1,14 +1,45 @@
-<p style="color: green"><%= notice %></p>
+<h1>Список лікарень</h1>
 
-<h1>Hospitals</h1>
+<% if @hospitals.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Назва</th>
+        <th>Адреса</th>
+        <th>Телефон</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hospitals.each do |hospital| %>
+        <tr>
+          <td><%= hospital.hname %></td>
+          <td><%= hospital.haddress %></td>
+          <td><%= hospital.hphone %></td>
+          <td><%= link_to 'Перегляд', hospital %></td>
+          <td><%= link_to 'Редагувати', edit_hospital_path(hospital) %></td>
+          <td><%= link_to 'Видалити', hospital, method: :delete, data: { confirm: 'Ви впевнені?' } %></td>
+        </tr>
+        <% if hospital.doctors.any? %>
+          <tr>
+            <td colspan="6">
+              <h3>Лікарі в цій лікарні:</h3>
+              <% hospital.doctors.each do |doctor| %>
+                <p>
+                  <%= link_to doctor.dname, doctor %>
+                </p>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Немає жодної лікарні.</p>
+<% end %>
 
-<div id="hospitals">
-  <% @hospitals.each do |hospital| %>
-    <%= render hospital %>
-    <p>
-      <%= link_to "Show this hospital", hospital %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New hospital", new_hospital_path %>
+<br>
+<%= link_to 'Створити нову лікарню', new_hospital_path %>
+<br>
+<%= link_to 'Повернутися на головну сторінку', root_path %>

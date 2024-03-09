@@ -1,1 +1,12 @@
-<p>Hello World!</p>
+<% if user_signed_in? %>
+  <p>Ви вже увійшли в систему.
+  <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
+  </p>
+  
+  <p>Залогований користувач: <%= current_user.email %></p>
+  <%= link_to "Керування лікарнями", hospitals_path %>
+  <%= link_to "Керування лікарями", doctors_path %>
+<% else %>
+  <p>Для того, щоб увійти або зареєструватися</p>
+  <%= link_to "Увійти або зареєструватися", new_user_session_path %>
+<% end %>
