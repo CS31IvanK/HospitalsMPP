@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c42326cd-9cbd-4d24-bb5e-fc46b43e3d8a" name="Changes" comment="Change index">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/.ruby-version" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/Gemfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/Gemfile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/Rakefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/assets/config/manifest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/assets/images/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/assets/stylesheets/application.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/channels/application_cable/channel.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/channels/application_cable/connection.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/application_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/concerns/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/doctors_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/home_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/hospitals_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/medical_records_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/controllers/patients_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/helpers/application_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/helpers/doctors_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/helpers/home_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/helpers/hospitals_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/helpers/medical_records_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/helpers/patients_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/javascript/application.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/javascript/controllers/application.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/javascript/controllers/hello_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/javascript/controllers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/jobs/application_job.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/mailers/application_mailer.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/application_record.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/concerns/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/doctor.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/hospital.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/medical_record.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/patient.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/models/user.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/_doctor.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/_doctor.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/index.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/doctors/show.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/home/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/_hospital.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/_hospital.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/index.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/hospitals/show.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/layouts/application.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/layouts/mailer.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/layouts/mailer.text.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/_medical_record.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/_medical_record.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/index.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/medical_records/show.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/_patient.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/_patient.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/index.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/app/views/patients/show.json.jbuilder" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/bundle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/bundle.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/docker-entrypoint" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/importmap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/rails" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/rake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/bin/setup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config.ru" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/application.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/boot.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/cable.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/credentials.yml.enc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/database.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/environment.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/environments/development.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/environments/production.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/environments/test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/importmap.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/initializers/assets.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/initializers/content_security_policy.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/initializers/devise.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/initializers/filter_parameter_logging.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/initializers/inflections.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/initializers/permissions_policy.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/locales/devise.en.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/locales/en.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/puma.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/routes.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/config/storage.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/migrate/20240302111553_create_hospitals.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/migrate/20240302111900_create_doctors.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/migrate/20240302112013_create_patients.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/migrate/20240302112147_create_medical_records.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/migrate/20240308133530_devise_create_users.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/schema.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/db/seeds.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/lib/assets/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/lib/tasks/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/log/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/422.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/apple-touch-icon-precomposed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/storage/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/application_system_test_case.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/channels/application_cable/connection_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/controllers/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/controllers/doctors_controller_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/controllers/home_controller_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/controllers/hospitals_controller_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/controllers/medical_records_controller_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/controllers/patients_controller_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/fixtures/doctors.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/fixtures/files/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/fixtures/hospitals.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/fixtures/medical_records.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/fixtures/patients.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/fixtures/users.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/helpers/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/integration/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/mailers/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/models/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/models/doctor_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/models/hospital_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/models/medical_record_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/models/patient_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/models/user_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/system/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/system/doctors_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/system/hospitals_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/system/medical_records_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/system/patients_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/test/test_helper.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/tmp/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/tmp/pids/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/tmp/storage/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/vendor/.keep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HospitalsAPP/HospitalsAPP/vendor/javascript/.keep" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "CS31IvanK"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="58243079-60b3-489b-86fa-9ab9f911bdff" />
+        <option name="url" value="https://github.com/CS31IvanK/HospitalsMPP.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2dRWolgEnxS8CfpGghTLHzvaSPr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/kafta/rorAPPpractice/HospitalsAPP/HospitalsMPP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "ruby.rails.projectView.checked": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c42326cd-9cbd-4d24-bb5e-fc46b43e3d8a" name="Changes" comment="" />
+      <created>1709971547676</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709971547676</updated>
+      <workItem from="1709971548710" duration="926000" />
+    </task>
+    <task id="LOCAL-00001" summary="Change index">
+      <option name="closed" value="true" />
+      <created>1709971637089</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709971637089</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Change index">
+      <option name="closed" value="true" />
+      <created>1709971814385</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709971814385</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Change index" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change index" />
+  </component>
+</project>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pat_id: 1
+  pname: MyString
+  padress: MyString
+  pphone: MyString
+  age: 1
+  doc_id: 1
+
+two:
+  pat_id: 1
+  pname: MyString
+  padress: MyString
+  pphone: MyString
+  age: 1
+  doc_id: 1

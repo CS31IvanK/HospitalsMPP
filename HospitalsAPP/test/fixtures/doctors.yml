@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dock_id: 1
+  dname: MyString
+  spec: MyString
+  dphone: MyString
+  hos_id: 1
+
+two:
+  dock_id: 1
+  dname: MyString
+  spec: MyString
+  dphone: MyString
+  hos_id: 1
