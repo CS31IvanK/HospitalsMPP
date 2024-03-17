@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_09_130139) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_17_153656) do
   create_table "doctors", force: :cascade do |t|
     t.integer "dock_id"
     t.string "dname"
@@ -22,13 +22,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_130139) do
   end
 
   create_table "hospitals", force: :cascade do |t|
-    t.integer "hid"
-    t.string "hname"
-    t.string "haddress"
-    t.string "hphone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "phone"
+    t.integer "rank"
+    t.string "name"
+    t.string "url"
+    t.string "country"
+    t.string "city"
   end
 
   create_table "medical_records", force: :cascade do |t|

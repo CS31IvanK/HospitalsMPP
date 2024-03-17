@@ -10,3 +10,17 @@
   <p>Для того, щоб увійти або зареєструватися</p>
   <%= link_to "Увійти або зареєструватися", new_user_session_path %>
 <% end %>
+
+<h1>Hospitals</h1>
+
+<ul>
+  <% @hospitals.each do |hospital| %>
+    <li>
+      <h2><%= hospital.name %></h2>
+      <p>Rank: <%= hospital.rank %></p>
+      <p>Country: <%= hospital.country %></p>
+      <p>City: <%= hospital.city %></p>
+      <p>URL: <%= link_to hospital.url, hospital.url %></p>
+    </li>
+  <% end %>
+</ul>
