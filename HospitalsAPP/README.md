@@ -6,7 +6,7 @@
 
 ## Посилання по документу
 ### Посилання на головні файли
-- [index.html.erb](app/views/home/index.html.erb): Вид, для відображення головної сторінки користувачам, які вже увійшли в систему та тим, хто ще ні.
+- [index.html.erb](app/views/home/index.html.erb) - Вид, для відображення головної сторінки користувачам, які вже увійшли в систему та тим, хто ще ні.
 - [index.html.erb](app/views/hospitals/index.html.erb) - Вид для відображення списку лікарень.
 - [index.html.erb](app/views/doctors/index.html.erb) - Вид для відображення списку лікарів.
 
