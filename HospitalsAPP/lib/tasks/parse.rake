@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 namespace :parser do
   desc "Here we parse hospitals from web-site"
-  task :parse do
+  task :parse => :environment do
     require 'csv'
     require 'nokogiri'
     require 'open-uri'
@@ -19,8 +19,9 @@ namespace :parser do
       unless Hospital.exists?(name: name, url: url)
         puts "Create hospitals"
         Hospital.create(rank: rank, name: name, url: url, country: country, city: city)
-        end
+      end
     end
+    puts "READY"
     Hospital.first
     end
 end

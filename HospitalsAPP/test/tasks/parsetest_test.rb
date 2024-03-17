@@ -4,9 +4,11 @@ require 'minitest/autorun'
 require 'rake'
 class ParsetestTest < Minitest::Test
   def setup
-    #Rake.application.rake_require "lib/tasks/parse.rake.rb"
+    puts "set"
+    Rake.application.rake_require "HospitalsAPP/lib/tasks/parse.rake"
+    puts "up"
     #useless (?)
-    #Rake::Task.define_task(:environment)
+    Rake::Task.define_task(:environment)
     # Do nothing
   end
 
@@ -15,6 +17,7 @@ class ParsetestTest < Minitest::Test
   end
 
   def test
+    puts "start"
     hospitals_count_before = Hospital.count
     Rake.application["parser:parse"].invoke
     hospitals_count_after = Hospital.count
