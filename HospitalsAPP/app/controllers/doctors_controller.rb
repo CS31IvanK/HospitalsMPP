@@ -3,7 +3,7 @@ class DoctorsController < ApplicationController
 
   # GET /doctors or /doctors.json
   def index
-    @doctors = Doctor.all
+    @doctors = Doctor.includes(:hospital).all
   end
 
   # GET /doctors/1 or /doctors/1.json

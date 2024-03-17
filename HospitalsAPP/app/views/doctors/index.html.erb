@@ -2,13 +2,34 @@
 
 <h1>Doctors</h1>
 
-<div id="doctors">
-  <% @doctors.each do |doctor| %>
-    <%= render doctor %>
-    <p>
-      <%= link_to "Show this doctor", doctor %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Dock</th>
+      <th>Dname</th>
+      <th>Spec</th>
+      <th>Dphone</th>
+      <th>Hos</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.dock_id %></td>
+        <td><%= doctor.dname %></td>
+        <td><%= doctor.spec %></td>
+        <td><%= doctor.dphone %></td>
+        <td><%= doctor.hospital.hname %></td>
+	<td><%= link_to "Info about hospital", hospital_path(doctor.hospital) %></td>
+        <td><%= link_to 'View', doctor %></td>
+        <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+        <td><%= link_to 'Delete', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New doctor", new_doctor_path %>
+<br>
+<%= link_to "Return to main page", root_path %>
