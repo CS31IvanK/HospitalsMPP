@@ -12,7 +12,7 @@ namespace :parser do
     hospitals.each do |hospital|
       tds = hospital.css('td')
       rank = tds[0].text
-      name = tds[1].text
+      name = hospital.css('a').text
       url = tds[1].css('a').first['href']
       country = tds[2].text
       city = tds[3].text
