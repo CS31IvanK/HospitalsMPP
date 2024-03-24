@@ -11,10 +11,11 @@
     </div>
   <% end %>
 
-  <!-- <div>
+  <div>
     <%= form.label :dock_id, style: "display: block" %>
     <%= form.number_field :dock_id %>
-   </div> -->
+  </div>
+
   <div>
     <%= form.label :dname, style: "display: block" %>
     <%= form.text_field :dname %>
@@ -27,12 +28,12 @@
 
   <div>
     <%= form.label :dphone, style: "display: block" %>
-    <%= form.text_field :dphone, type: 'tel'%>
+    <%= form.text_field :dphone %>
   </div>
 
   <div>
     <%= form.label :hos_id, style: "display: block" %>
-    <%= form.collection_select :hos_id, Hospital.all, :rank, :name %>
+    <%= form.number_field :hos_id %>
   </div>
 
   <div>

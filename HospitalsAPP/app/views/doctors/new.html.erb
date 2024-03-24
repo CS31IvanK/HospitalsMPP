@@ -1,9 +1,19 @@
-<h1>New doctor</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">New doctor</h2>
+        </div>
 
-<%= render "form", doctor: @doctor %>
+        <div class="card-body">
+          <%= render "form", doctor: @doctor %>
+        </div>
+      </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to doctors", doctors_path %>
+      <div class="mt-3">
+        <%= link_to "Back to doctors", doctors_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
 </div>

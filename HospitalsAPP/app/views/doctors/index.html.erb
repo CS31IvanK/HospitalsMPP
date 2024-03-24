@@ -1,35 +1,50 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header text-center">
+          <h2 class="mb-0">Список лікарів</h2>
+        </div>
 
-<h1>Doctors</h1>
+        <div class="card-body">
+          <%= link_to 'Створити нового лікаря', new_doctor_path, class: 'btn btn-primary mb-3' %>
+          <%= link_to 'Повернутися на головну сторінку', root_path, class: 'btn btn-secondary mb-3' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Dock</th>
-      <th>Dname</th>
-      <th>Spec</th>
-      <th>Dphone</th>
-      <th>Hos</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @doctors.each do |doctor| %>
+          <% if @doctors.any? %>
+            <table class="table">
+              <thead>
       <tr>
-        <td><%= doctor.dock_id %></td>
-        <td><%= doctor.dname %></td>
-        <td><%= doctor.spec %></td>
-        <td><%= doctor.dphone %></td>
-        <td><%= doctor.hospital.name %></td>
-	<td><%= link_to "Info about hospital", hospital_path(doctor.hospital) %></td>
-        <td><%= link_to 'View', doctor %></td>
-        <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-        <td><%= link_to 'Delete', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Рейтинговий номер (id)</th>
+        <th>Ім'я</th>
+        <th>Спеціальність</th>
+        <th>Телефон</th>
+        <th>Лікарня</th>
+        <th colspan="5"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "New doctor", new_doctor_path %>
-<br>
-<%= link_to "Return to main page", root_path %>
+    </thead>
+    <tbody>
+      <% @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.dock_id %></td>
+          <td><%= doctor.dname %></td>
+          <td><%= doctor.spec %></td>
+          <td><%= doctor.dphone %></td>
+          <td><%= doctor.hospital.hname %></td>
+          <td><%= link_to 'Інформація про лікарню', hospital_path(doctor.hospital), class: 'btn btn-info' %></td>
+          <td><%= link_to 'Перегляд', doctor, class: 'btn btn-info' %></td>
+          <td><%= link_to 'Редагувати', edit_doctor_path(doctor), class: 'btn btn-warning' %></td>
+          <td><%= link_to 'Видалити', doctor, method: :delete, data: { confirm: 'Ви впевнені?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+            </table>
+          <% else %>
+            <div class="alert alert-warning" role="alert">
+              Немає жодного лікаря.
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
