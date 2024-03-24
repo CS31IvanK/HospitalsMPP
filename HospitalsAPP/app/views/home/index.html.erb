@@ -1,26 +1,45 @@
-<% if user_signed_in? %>
-  <p>Ви вже увійшли в систему.
-  <%= link_to "Вийти", destroy_user_session_path, method: :delete %>
-  </p>
-  
-  <p>Залогований користувач: <%= current_user.email %></p>
-  <%= link_to "Керування лікарнями", hospitals_path %>
-  <%= link_to "Керування лікарями", doctors_path %>
-<% else %>
-  <p>Для того, щоб увійти або зареєструватися</p>
-  <%= link_to "Увійти або зареєструватися", new_user_session_path %>
-<% end %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #f8f9fa; padding: 10px; border-bottom: 2px solid #6c757d;">
+          <h1 class="display-4 text-muted">HOSPITALAPP</h1>
+          <% if user_signed_in? %>
+            <div>
+              <span class="alert alert-success" role="alert">
+                Залогований користувач: <%= current_user.email %>
+              </span>
+              <%= link_to "Вийти", destroy_user_session_path, method: :delete, class: "btn btn-primary ml-3" %>
+            </div>
+          <% else %>
+            <div class="alert alert-warning" role="alert">
+              Для того, щоб увійти або зареєструватися
+              <%= link_to "Увійти або зареєструватися", new_user_session_path, class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
 
-<h1>Hospitals</h1>
+        <% if user_signed_in? %>
+          <%= link_to "Керування лікарнями", hospitals_path, class: "btn btn-primary" %>
+          <%= link_to "Керування лікарями", doctors_path, class: "btn btn-primary" %>
+        <% end %>
 
-<ul>
-  <% @hospitals.each do |hospital| %>
-    <li>
-      <h2><%= hospital.name %></h2>
-      <p>Rank: <%= hospital.rank %></p>
-      <p>Country: <%= hospital.country %></p>
-      <p>City: <%= hospital.city %></p>
-      <p>URL: <%= link_to hospital.url, hospital.url %></p>
-    </li>
-  <% end %>
-</ul>
+        <div class="card-body">
+          <h1 class="display-4">Hospitals</h1>
+
+          <div class="list-group">
+            <% @hospitals.each do |hospital| %>
+              <div class="list-group-item">
+                <h2 class="display-5"><%= hospital.name %></h2>
+                <p class="mb-1">Rank: <%= hospital.rank %></p>
+                <p class="mb-1">Country: <%= hospital.country %></p>
+                <p class="mb-1">City: <%= hospital.city %></p>
+                <p class="mb-1">URL: <%= link_to hospital.url, hospital.url %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

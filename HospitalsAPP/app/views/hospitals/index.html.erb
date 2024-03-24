@@ -1,13 +1,18 @@
-<br>
-<%= link_to 'Створити нову лікарню', new_hospital_path %>
-<br>
-<%= link_to 'Повернутися на головну сторінку', root_path %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header text-center">
+          <h2 class="mb-0">Список лікарень</h2>
+        </div>
 
-<h1>Список лікарень</h1>
+        <div class="card-body">
+          <%= link_to 'Створити нову лікарню', new_hospital_path, class: 'btn btn-primary mb-3' %>
+          <%= link_to 'Повернутися на головну сторінку', root_path, class: 'btn btn-secondary mb-3' %>
 
-<% if @hospitals.any? %>
-  <table>
-    <thead>
+          <% if @hospitals.any? %>
+            <table class="table">
+              <thead>
       <tr>
         <th>Рейтинговий номер (id)</th>
         <th>Назва</th>
@@ -25,11 +30,10 @@
           <td><%= hospital.url %></td>
           <td><%= hospital.country %></td>
           <td><%= hospital.city %></td>
-          <td><%= link_to 'Перегляд', hospital %></td>
-          <td><%= link_to 'Редагувати', edit_hospital_path(hospital) %></td>
-          <td><%= link_to 'Видалити', hospital, method: :delete, data: { confirm: 'Ви впевнені?' } %></td>
+          <td><%= link_to 'Перегляд', hospital, class: 'btn btn-info' %></td>
+          <td><%= link_to 'Редагувати', edit_hospital_path(hospital), class: 'btn btn-warning' %></td>
+          <td><%= link_to 'Видалити', hospital, method: :delete, data: { confirm: 'Ви впевнені?' }, class: 'btn btn-danger' %></td>
         </tr>
-      <!-- Can remove next code? -->
         <% if hospital.doctors.any? %>
           <tr>
             <td colspan="6">
@@ -44,8 +48,14 @@
         <% end %>
       <% end %>
     </tbody>
-  </table>
-<% else %>
-  <p>Немає жодної лікарні.</p>
-<% end %>
-
+            </table>
+          <% else %>
+            <div class="alert alert-warning" role="alert">
+              Немає жодної лікарні.
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
