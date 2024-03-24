@@ -20,7 +20,7 @@
         <td><%= doctor.dname %></td>
         <td><%= doctor.spec %></td>
         <td><%= doctor.dphone %></td>
-        <td><%= doctor.hospital.hname %></td>
+        <td><%= doctor.hospital.name %></td>
 	<td><%= link_to "Info about hospital", hospital_path(doctor.hospital) %></td>
         <td><%= link_to 'View', doctor %></td>
         <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
