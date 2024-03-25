@@ -34,7 +34,7 @@
                 <p class="mb-1">Rank: <%= hospital.rank %></p>
                 <p class="mb-1">Country: <%= hospital.country %></p>
                 <p class="mb-1">City: <%= hospital.city %></p>
-                <p class="mb-1">URL: <%= link_to hospital.url, hospital.url %></p>
+                <p class="mb-1">URL: <%= link_to @hospital.name, hospital_url(@hospital) %></p>
               </div>
             <% end %>
           </div>

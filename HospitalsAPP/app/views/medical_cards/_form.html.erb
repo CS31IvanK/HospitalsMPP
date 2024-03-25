@@ -1,0 +1,42 @@
+<%= form_with(model: medical_card, local: true) do |form| %>
+  <% if medical_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medical_card.errors.count, "error") %> prohibited this medical_card from being saved:</h2>
+
+      <ul>
+      <% medical_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :medical_card_id %>
+    <%= form.number_field :medical_card_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.collection_select :patient_id, Patient.all, :id, :pname, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doctor_id %>
+    <%= form.collection_select :doctor_id, Doctor.all, :id, :dname, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hospital_id %>
+    <%= form.collection_select :hospital_id, Hospital.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :diagnosis %>
+    <%= form.text_field :diagnosis %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

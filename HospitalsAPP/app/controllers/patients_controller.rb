@@ -8,7 +8,9 @@ class PatientsController < ApplicationController
 
   # GET /patients/1 or /patients/1.json
   def show
+    @patient = Patient.find(params[:id])
     @doctor = @patient.doctor
+    @medical_cards = @patient.medical_cards
   end
 
   # GET /patients/new

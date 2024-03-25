@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :cards
-  resources :records
+  resources :medical_cards
   devise_for :users
   resources :medical_records
-  resources :patients
+  resources :patients do
+    resources :medical_cards, only: [:index], controller: 'medical_cards'
+  end
   resources :doctors
   resources :hospitals
 
