@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cards
+  resources :records
   devise_for :users
   resources :medical_records
   resources :patients

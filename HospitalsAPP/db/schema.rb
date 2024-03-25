@@ -21,6 +21,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_003954) do
     t.datetime "updated_at", null: false
   end
 
+# Could not dump table "doctors" because of following StandardError
+#   Unknown type 'stringк' for column 'phone'
+
   create_table "hospitals", force: :cascade do |t|
     t.integer "rank"
     t.string "name"
@@ -48,8 +51,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_003954) do
     t.integer "doc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "doctor_id"
-    t.string "diagnosis"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.string "record_id"
+    t.string "conclusion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
