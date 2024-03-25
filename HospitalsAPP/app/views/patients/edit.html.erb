@@ -1,10 +1,20 @@
-<h1>Editing patient</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="mb-0">Editing patient</h2>
+        </div>
 
-<%= render "form", patient: @patient %>
+        <div class="card-body">
+          <%= render "form", patient: @patient %>
+        </div>
+      </div>
 
-<br>
-
-<div>
-  <%= link_to "Show this patient", @patient %> |
-  <%= link_to "Back to patients", patients_path %>
+      <div class="mt-3">
+        <%= link_to "Show this patient", @patient, class: 'btn btn-primary' %>
+        <%= link_to "Back to patients", patients_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
 </div>

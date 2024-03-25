@@ -18,15 +18,15 @@
             </div>
           <% end %>
         </div>
-
-        <% if user_signed_in? %>
-          <%= link_to "Керування лікарнями", hospitals_path, class: "btn btn-primary" %>
-          <%= link_to "Керування лікарями", doctors_path, class: "btn btn-primary" %>
-        <% end %>
-
         <div class="card-body">
+          <% if user_signed_in? && current_user.doctor? %>
+            <div class="text-center mb-3"> <!-- Додаємо клас text-center тут -->
+              <%= link_to "Керування лікарнями", hospitals_path, class: "btn btn-primary" %>
+              <%= link_to "Керування лікарями", doctors_path, class: "btn btn-primary" %>
+              <%= link_to "Керування пацієнтами", patients_path, class: "btn btn-primary" %>
+            </div>
+          <% end %>
           <h1 class="display-4">Hospitals</h1>
-
           <div class="list-group">
             <% @hospitals.each do |hospital| %>
               <div class="list-group-item">

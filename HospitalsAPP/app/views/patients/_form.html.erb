@@ -1,47 +1,53 @@
-<%= form_with(model: patient) do |form| %>
+<%= form_with(model: patient, local: true) do |form| %>
   <% if patient.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
       <ul>
-        <% patient.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :pat_id, style: "display: block" %>
-    <%= form.number_field :pat_id %>
+  <div class="field">
+    <%= form.label :pat_id %>
+    <%= form.text_field :pat_id %>
   </div>
 
-  <div>
-    <%= form.label :pname, style: "display: block" %>
+  <div class="field">
+    <%= form.label :pname %>
     <%= form.text_field :pname %>
   </div>
 
-  <div>
-    <%= form.label :padress, style: "display: block" %>
+  <div class="field">
+    <%= form.label :padress %>
     <%= form.text_field :padress %>
   </div>
 
-  <div>
-    <%= form.label :pphone, style: "display: block" %>
+  <div class="field">
+    <%= form.label :pphone %>
     <%= form.text_field :pphone %>
   </div>
 
-  <div>
-    <%= form.label :age, style: "display: block" %>
+  <div class="field">
+    <%= form.label :age %>
     <%= form.number_field :age %>
   </div>
 
-  <div>
-    <%= form.label :doc_id, style: "display: block" %>
-    <%= form.number_field :doc_id %>
+  <div class="field">
+    <%= form.label :doctor_id %>
+    <%= form.collection_select :doctor_id, Doctor.all, :id, :dname, prompt: "Select Doctor" %>
   </div>
 
-  <div>
+
+  <div class="field">
+    <%= form.label :diagnosis %>
+    <%= form.text_field :diagnosis %>
+  </div>
+
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>

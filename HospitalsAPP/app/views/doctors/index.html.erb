@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container-fluid mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
@@ -13,30 +13,30 @@
           <% if @doctors.any? %>
             <table class="table">
               <thead>
-      <tr>
-        <th>Рейтинговий номер (id)</th>
-        <th>Ім'я</th>
-        <th>Спеціальність</th>
-        <th>Телефон</th>
-        <th>Лікарня</th>
-        <th colspan="5"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @doctors.each do |doctor| %>
-        <tr>
-          <td><%= doctor.dock_id %></td>
-          <td><%= doctor.dname %></td>
-          <td><%= doctor.spec %></td>
-          <td><%= doctor.dphone %></td>
-          <td><%= doctor.hospital.hname %></td>
-          <td><%= link_to 'Інформація про лікарню', hospital_path(doctor.hospital), class: 'btn btn-info' %></td>
-          <td><%= link_to 'Перегляд', doctor, class: 'btn btn-info' %></td>
-          <td><%= link_to 'Редагувати', edit_doctor_path(doctor), class: 'btn btn-warning' %></td>
-          <td><%= link_to 'Видалити', doctor, method: :delete, data: { confirm: 'Ви впевнені?' }, class: 'btn btn-danger' %></td>
-        </tr>
-      <% end %>
-    </tbody>
+                <tr>
+                  <th>Рейтинговий номер (id)</th>
+                  <th>Ім'я</th>
+                  <th>Спеціальність</th>
+                  <th>Телефон</th>
+                  <th>Лікарня</th>
+                  <th colspan="5"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @doctors.each do |doctor| %>
+                  <tr>
+                    <td><%= doctor.dock_id %></td>
+                    <td><%= doctor.dname %></td>
+                    <td><%= doctor.spec %></td>
+                    <td><%= doctor.dphone %></td>
+                    <td><%= doctor.hospital.name %></td>
+                    <td><%= link_to 'Інформація про лікарню', hospital_path(doctor.hospital), class: 'btn btn-info' %></td>
+                    <td><%= link_to 'Перегляд', doctor, class: 'btn btn-info' %></td>
+                    <td><%= link_to 'Редагувати', edit_doctor_path(doctor), class: 'btn btn-warning' %></td>
+                    <td><%= link_to 'Видалити', doctor, method: :delete, data: { confirm: 'Ви впевнені?' }, class: 'btn btn-danger' %></td>
+                  </tr>
+                <% end %>
+              </tbody>
             </table>
           <% else %>
             <div class="alert alert-warning" role="alert">
