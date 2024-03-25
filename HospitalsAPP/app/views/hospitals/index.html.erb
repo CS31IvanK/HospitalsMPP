@@ -39,10 +39,10 @@
             <td colspan="6">
               <h3>Лікарі в цій лікарні:</h3>
               <% hospital.doctors.each do |doctor| %>
-                <p>
-                  <%= link_to doctor.dname, doctor %>
-                </p>
-              <% end %>
+  		<p>
+    		  <%= link_to "#{doctor.dname}, #{doctor.spec}", doctor %>
+  		</p>
+	      <% end %>
             </td>
           </tr>
         <% end %>
