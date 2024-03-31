@@ -4,9 +4,9 @@
       <h2><%= pluralize(medical_card.errors.count, "error") %> prohibited this medical_card from being saved:</h2>
 
       <ul>
-      <% medical_card.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% medical_card.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -31,10 +31,21 @@
     <%= form.collection_select :hospital_id, Hospital.all, :id, :name, prompt: true %>
   </div>
 
-  <!--<div class="field">
-    <%= form.label :diagnosis %>
-    <%= form.text_field :diagnosis %>
-  </div> -->
+  <div class="field">
+  <%= form.label :diagnosis %>
+  <%= form.text_field :diagnosis %>
+</div>
+
+  <div class="field">
+    <%= form.label :appointment_date %>
+    <%= form.datetime_field :appointment_date, class: 'form-control', placeholder: 'YYYY-MM-DD HH:MM' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appointment_type %>
+    <%= form.select :appointment_type, ['Операція', 'Консультація'], prompt: 'Оберіть тип прийому' %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

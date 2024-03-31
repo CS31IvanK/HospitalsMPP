@@ -1,61 +1,52 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header text-center">
-          <h2 class="mb-0">Список лікарень</h2>
-        </div>
+<div class="card-header text-center">
+  <h2 class="mb-0">Список лікарень</h2>
+</div>
+<div class="card-body">
+  <%= link_to 'Створити нову лікарню', new_hospital_path, class: 'btn btn-primary mb-3' %>
 
-        <div class="card-body">
-          <%= link_to 'Створити нову лікарню', new_hospital_path, class: 'btn btn-primary mb-3' %>
-          <%= link_to 'Повернутися на головну сторінку', root_path, class: 'btn btn-secondary mb-3' %>
-
-          <% if @hospitals.any? %>
-            <table class="table">
-              <thead>
-      <tr>
-        <th>Рейтинговий номер (id)</th>
-        <th>Назва</th>
-        <th>Посилання</th>
-        <th>Країна</th>
-        <th>Місто</th>
-        <th colspan="5"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @hospitals.each do |hospital| %>
+  <% if @hospitals.any? %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
         <tr>
-          <td><%= hospital.rank %></td>
-          <td><%= hospital.name %></td>
-          <td><%= hospital.url %></td>
-          <td><%= hospital.country %></td>
-          <td><%= hospital.city %></td>
-          <td><%= link_to 'Перегляд', hospital, class: 'btn btn-info' %></td>
-          <td><%= link_to 'Редагувати', edit_hospital_path(hospital), class: 'btn btn-warning' %></td>
-          <td><%= link_to 'Видалити', hospital, method: :delete, data: { confirm: 'Ви впевнені?' }, class: 'btn btn-danger' %></td>
+          <th>Рейтинговий номер (id)</th>
+          <th>Назва</th>
+          <th>Посилання</th>
+          <th>Країна</th>
+          <th>Місто</th>
+          <th colspan="5"></th>
         </tr>
-        <% if hospital.doctors.any? %>
+        </thead>
+        <tbody>
+        <% @hospitals.each do |hospital| %>
           <tr>
-            <td colspan="6">
-              <h3>Лікарі в цій лікарні:</h3>
-              <% hospital.doctors.each do |doctor| %>
-  		<p>
-    		  <%= link_to "#{doctor.dname}, #{doctor.spec}", doctor %>
-  		</p>
-	      <% end %>
-            </td>
+            <td><%= hospital.rank %></td>
+            <td><%= hospital.name %></td>
+            <td><%= hospital.url %></td>
+            <td><%= hospital.country %></td>
+            <td><%= hospital.city %></td>
+            <td><%= link_to 'Перегляд', hospital, class: 'btn btn-info btn-view' %></td>
+            <td><%= link_to 'Редагувати', edit_hospital_path(hospital), class: 'btn btn-warning btn-edit' %></td>
+            <td><%= link_to 'Видалити', hospital, method: :delete, data: { confirm: 'Ви впевнені?' }, class: 'btn btn-danger btn-delete' %></td>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-            </table>
-          <% else %>
-            <div class="alert alert-warning" role="alert">
-              Немає жодної лікарні.
-            </div>
+          <% if hospital.doctors.any? %>
+            <tr>
+              <td colspan="6">
+                <p class="hospital-doctors-title">Лікарі в цій лікарні:
+                <% hospital.doctors.each do |doctor| %>
+                  <%= link_to "#{doctor.dname}, #{doctor.spec}", doctor, class: 'btn btn-secondary doctors-link' %>
+                <% end %>
+                </p>
+              </td>
+            </tr>
           <% end %>
-        </div>
-      </div>
+        <% end %>
+        </tbody>
+      </table>
     </div>
-  </div>
+  <% else %>
+    <div class="alert alert-warning" role="alert">
+      Немає жодної лікарні.
+    </div>
+  <% end %>
 </div>

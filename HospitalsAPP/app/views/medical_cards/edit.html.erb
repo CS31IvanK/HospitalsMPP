@@ -6,9 +6,18 @@
           <h2 class="mb-0">Editing medical card</h2>
         </div>
 
-        <div class="card-body">
-          <%= render "form", medical_card: @medical_card %>
-        </div>
+        <% if current_user.patient? %>
+          <%= form_for @medical_card do |form| %>
+            <div class="form-group">
+              <%= form.label :appointment_date, "Appointment Date" %>
+              <%= form.datetime_field :appointment_date, class: 'form-control', value: @medical_card.appointment_date.strftime("%Y-%m-%d %H:%M") %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit "Save Changes", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
 
       <div class="mt-3">

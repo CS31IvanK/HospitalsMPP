@@ -5,14 +5,42 @@ class MedicalCardsController < ApplicationController
   def index
     if params[:patient_id].present?
       @patient = Patient.find(params[:patient_id])
-      @medical_cards = @patient.medical_cards
+      @medical_cards = @patient.medical_cards.where('appointment_date >= ?', Time.now).order(appointment_date: :asc)
     else
-      @medical_cards = MedicalCard.all
+      @medical_cards = MedicalCard.where('appointment_date >= ?', Time.now).order(appointment_date: :asc)
     end
+    @past_medical_cards = MedicalCard.where('appointment_date < ?', Time.now).order(appointment_date: :desc)
   end
+
+
+  def past
+    @medical_cards = MedicalCard.where('appointment_date < ?', Time.now).order(appointment_date: :desc)
+    render :index
+  end
+
 
   # GET /medical_cards/1 or /medical_cards/1.json
   def show
+  end
+
+
+  def mark_attended
+    @medical_card = MedicalCard.find(params[:id])
+    if @medical_card.update(attended: true)
+      render json: { attended: true }
+    else
+      render json: { error: "Failed to update attendance status" }, status: :unprocessable_entity
+    end
+  end
+
+
+  def mark_not_attended
+    @medical_card = MedicalCard.find(params[:id])
+    if @medical_card.update(attended: false)
+      render json: { attended: false }
+    else
+      render json: { error: "Failed to update attendance status" }, status: :unprocessable_entity
+    end
   end
 
 
@@ -67,13 +95,13 @@ class MedicalCardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medical_card
-      @medical_card = MedicalCard.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medical_card
+    @medical_card = MedicalCard.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def medical_card_params
-      params.require(:medical_card).permit(:medical_card_id, :patient_id, :doctor_id, :hospital_id, :diagnosis)
-    end
+  # Only allow a list of trusted parameters through.
+  def medical_card_params
+    params.require(:medical_card).permit(:medical_card_id, :patient_id, :doctor_id, :hospital_id, :diagnosis, :appointment_date, :appointment_type)
+  end
 end

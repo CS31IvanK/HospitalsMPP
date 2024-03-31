@@ -1,19 +1,108 @@
 @import "bootstrap";
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import '~animate.css/animate.css';
+
 body {
   background-color: ivory;
 }
+
+.appointment-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.patient-appointment {
+  margin-top: 20px;
+}
+
+.appointment-info {
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #cce5ff;
+  color: #007bff;
+  animation: fadeInDown 1s ease;
+}
+
+.appointment-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+}
+
+.appointment-date {
+  margin-left: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.medical-record-info {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.medical-record-info:hover {
+  background-color: #e6e6e6;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.card {
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.btn-secondary {
+  transition: all 0.3s ease-in-out;
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background-color: #5a6268;
+}
+
+

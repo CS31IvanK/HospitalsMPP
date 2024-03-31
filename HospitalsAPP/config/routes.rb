@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  resources :medical_cards
+  resources :medical_cards do
+    collection do
+      get :past
+    end
+  end
+  resources :medical_cards do
+    patch :mark_attended, on: :member
+    patch :mark_not_attended, on: :member
+  end
   devise_for :users
   resources :medical_records
   resources :patients do
     resources :medical_cards, only: [:index], controller: 'medical_cards'
   end
+
   resources :doctors
   resources :hospitals
   resources :records

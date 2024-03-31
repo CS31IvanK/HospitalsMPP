@@ -1,49 +1,42 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-      <div class="card">
-        <div class="card-header text-center">
-          <h2 class="mb-0">Patients List</h2>
-        </div>
+<div class="card-header text-center">
+  <h2 class="mb-0">Patients List</h2>
+</div>
 
-        <div class="card-body">
-          <%= link_to 'Create New Patient', new_patient_path, class: 'btn btn-primary mb-3' %>
-          <%= link_to 'Back to Home', root_path, class: 'btn btn-secondary mb-3' %>
+<div class="card-body">
+  <%= link_to 'Create New Patient', new_patient_path, class: 'btn btn-primary mb-3' %>
 
-          <% if @patients.any? %>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Phone</th>
-                  <th>Age</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @patients.each do |patient| %>
-                  <tr>
-                    <td><%= patient.pname %></td>
-                    <td><%= patient.padress %></td>
-                    <td><%= patient.pphone %></td>
-                    <td><%= patient.age %></td>
-                    <td>
-                      <%= link_to "Show", patient, class: 'btn btn-info btn-sm' %>
-                      <%= link_to "Edit", edit_patient_path(patient), class: 'btn btn-warning btn-sm' %>
-                      <%= link_to "Delete", patient, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          <% else %>
-            <div class="alert alert-warning" role="alert">
-              No patients found.
-            </div>
-          <% end %>
-        </div>
-      </div>
+  <% if @patients.any? %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Age</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @patients.each do |patient| %>
+          <tr>
+            <td><%= patient.pname %></td>
+            <td><%= patient.padress %></td>
+            <td><%= patient.pphone %></td>
+            <td><%= patient.age %></td>
+            <td>
+              <%= link_to "Show", patient, class: 'btn btn-info btn-sm' %>
+              <%= link_to "Edit", edit_patient_path(patient), class: 'btn btn-warning btn-sm' %>
+              <%= link_to "Delete", patient, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
-  </div>
+  <% else %>
+    <div class="alert alert-warning" role="alert">
+      No patients found.
+    </div>
+  <% end %>
 </div>

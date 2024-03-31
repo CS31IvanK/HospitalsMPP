@@ -1,44 +1,107 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
+    <div class="col-md-6">
+      <div class="card animate__animated animate__fadeIn">
         <div class="card-header text-center">
-          <h2 class="mb-0">Patient's card</h2>
+          <h2 class="mb-0">Future Appointments</h2>
         </div>
-
         <div class="card-body">
-          <%= link_to 'Повернутися на головну сторінку', root_path, class: 'btn btn-secondary mb-3' %>
-
           <% if @medical_cards.any? %>
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th>Medical Card ID</th>
-                  <th>Patient</th>
-                  <th>Doctor</th>
-                  <th>Hospital</th>
-                  <!--<th>Diagnosis</th>-->
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @medical_cards.each do |medical_card| %>
-                  <tr>
-                    <td><%= medical_card.medical_card_id %></td>
-                    <td><%= medical_card.patient.pname %></td>
-<!--                    <td><#%= medical_card.doctor.dname %></td>-->
-                    <td><%= medical_card.hospital.name %></td>
-                    <!--<td><#%= medical_card.diagnosis %></td>-->
-                    <td><%= link_to 'Show', medical_card, class: 'btn btn-info btn-sm' %></td>
-                    <td><%= link_to 'Edit', edit_medical_card_path(medical_card), class: 'btn btn-warning btn-sm' %></td>
-                    <td><%= link_to 'Destroy', medical_card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+            <div class="row row-cols-1 gy-3">
+              <% @medical_cards.each do |medical_card| %>
+                <div class="col">
+                  <div class="card mb-3 appointment-card animate__animated animate__fadeIn" data-card-id="<%= medical_card.id %>">
+                    <div class="card-body">
+                      <div class="medical-record-info animate__animated animate__fadeIn">
+                        <h5 class="card-title">Medical Record ID: <%= medical_card.medical_card_id %></h5>
+                        <p class="card-text">Appointment Type: <%= medical_card.appointment_type %></p>
+                        <p class="card-text">Patient: <%= medical_card.patient.pname %></p>
+                        <p class="card-text">Hospital: <%= medical_card.hospital.name %></p>
+                      </div>
+                      <% if current_user.doctor? %>
+                        <p class="card-text">Appointment Date: <%= medical_card.appointment_date ? medical_card.appointment_date.strftime("%d/%m/%Y %H:%M") : 'Not set' %></p>
+                        <div class="attendance-buttons">
+                          <%= button_to 'Attended', mark_attended_medical_card_path(medical_card), method: :patch, class: 'btn btn-success', remote: true, data: { url: mark_attended_medical_card_path(medical_card) } %>
+                          <%= button_to 'Not Attended', mark_not_attended_medical_card_path(medical_card), method: :patch, class: 'btn btn-danger', remote: true, data: { url: mark_not_attended_medical_card_path(medical_card) } %>
+                        </div>
+                        <% elsif current_user.patient? %>
+                          <div class="patient-appointment">
+                            <div class="alert alert-info appointment-info" role="alert">
+                              <i class="far fa-calendar-alt appointment-icon"></i>
+                              <div class="appointment-date">
+                                <strong>Appointment Date:</strong><br>
+                                <%= medical_card.appointment_date ? medical_card.appointment_date.strftime("%d/%m/%Y %H:%M") : 'Not set' %>
+                              </div>
+                            </div>
+                            <%= link_to 'Edit appointement date', edit_medical_card_path(medical_card), class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                          </div>
+                        <% else %>
+                          <%= link_to 'Show', medical_card, class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                          <%= link_to 'Edit', edit_medical_card_path(medical_card), class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                          <%= link_to 'Destroy', medical_card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                        <% end %>
+                        </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           <% else %>
             <div class="alert alert-warning" role="alert">
-              No medical cards available.
+              No future medical appointments available.
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card bg-light animate__animated animate__fadeIn">
+        <div class="card-header text-center">
+          <h2 class="mb-0">Past Appointments</h2>
+        </div>
+        <div class="card-body">
+          <% if @past_medical_cards.any? %>
+            <div class="row row-cols-1 gy-3">
+              <% @past_medical_cards.each do |medical_card| %>
+                <div class="col">
+                  <div class="card mb-3 appointment-card animate__animated animate__fadeIn" data-card-id="<%= medical_card.id %>">
+                    <div class="card-body">
+                      <div class="medical-record-info animate__animated animate__fadeIn">
+                        <h5 class="card-title">Medical Record ID: <%= medical_card.medical_card_id %></h5>
+                        <p class="card-text">Appointment Type: <%= medical_card.appointment_type %></p>
+                        <p class="card-text">Patient: <%= medical_card.patient.pname %></p>
+                        <p class="card-text">Hospital: <%= medical_card.hospital.name %></p>
+                      </div>
+                      <% if current_user.doctor? %>
+                        <p class="card-text">Appointment Date: <%= medical_card.appointment_date ? medical_card.appointment_date.strftime("%d/%m/%Y %H:%M") : 'Not set' %></p>
+                        <div class="attendance-buttons">
+                          <%= button_to 'Attended', mark_attended_medical_card_path(medical_card), method: :patch, class: 'btn btn-success', remote: true, data: { url: mark_attended_medical_card_path(medical_card) } %>
+                          <%= button_to 'Not Attended', mark_not_attended_medical_card_path(medical_card), method: :patch, class: 'btn btn-danger', remote: true, data: { url: mark_not_attended_medical_card_path(medical_card) } %>
+                        </div>
+                        <% elsif current_user.patient? %>
+                          <div class="patient-appointment">
+                            <div class="alert alert-info appointment-info" role="alert">
+                              <i class="far fa-calendar-alt appointment-icon"></i>
+                              <div class="appointment-date">
+                                <strong>Appointment Date:</strong><br>
+                                <%= medical_card.appointment_date ? medical_card.appointment_date.strftime("%d/%m/%Y %H:%M") : 'Not set' %>
+                              </div>
+                            </div>
+                            <%= link_to 'Edit appointement date', edit_medical_card_path(medical_card), class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                          </div>
+                        <% else %>
+                          <%= link_to 'Show', medical_card, class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                          <%= link_to 'Edit', edit_medical_card_path(medical_card), class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                          <%= link_to 'Destroy', medical_card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-sm animate__animated animate__fadeIn' %>
+                        <% end %>
+
+                        </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="alert alert-warning" role="alert">
+              No past medical appointments available.
             </div>
           <% end %>
         </div>
