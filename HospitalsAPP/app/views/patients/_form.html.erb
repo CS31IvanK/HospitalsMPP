@@ -36,17 +36,6 @@
     <%= form.number_field :age %>
   </div>
 
-  <div class="field">
-    <%= form.label :doctor_id %>
-    <%= form.collection_select :doctor_id, Doctor.all, :id, :dname, prompt: "Select Doctor" %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :diagnosis %>
-    <%= form.text_field :diagnosis %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

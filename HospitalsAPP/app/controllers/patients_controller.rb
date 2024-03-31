@@ -3,13 +3,13 @@ class PatientsController < ApplicationController
 
   # GET /patients or /patients.json
   def index
-    @patients = Patient.includes(:doctor)
+    @patients = Patient#.includes(:doctor)
   end
 
   # GET /patients/1 or /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-    @doctor = @patient.doctor
+    #@doctor = @patient.doctor
     @medical_cards = @patient.medical_cards
   end
 
@@ -68,6 +68,6 @@ class PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
   def patient_params
-    params.require(:patient).permit(:pat_id, :pname, :padress, :pphone, :age, :doctor_id, :diagnosis)
+    params.require(:patient).permit(:pat_id, :pname, :padress, :pphone, :age)
   end
 end

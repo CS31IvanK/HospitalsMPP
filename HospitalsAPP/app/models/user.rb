@@ -6,7 +6,7 @@ class User < ApplicationRecord
   enum role:{patient: 0, doctor: 1}
   before_validation :set_role
   has_one :doctor, foreign_key: "dock_id", primary_key: "id"
-
+  has_one :patient, foreign_key: "pat_id", primary_key: "id"#???
   # validates :email, format: { with: /\A[\w+\-.]+@karazin\.ua\z/, message: "must be a karazin.ua account" }
 
   private

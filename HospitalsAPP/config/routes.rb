@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
   resources :doctors
   resources :hospitals
+  resources :records
+
 
   devise_scope :user do
     match '/users/sign_out', to: 'devise/sessions#destroy', via: [:get, :delete]

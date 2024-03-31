@@ -58,11 +58,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     t.string "padress"
     t.string "pphone"
     t.integer "age"
-    t.integer "doc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "doctor_id"
-    t.string "diagnosis"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.string "record_id"
+    t.string "conclusion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "dock_id"
+    t.index ["dock_id"], name: "index_records_on_dock_id"
   end
 
   create_table "users", force: :cascade do |t|
