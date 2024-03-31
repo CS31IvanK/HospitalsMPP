@@ -65,6 +65,6 @@ class MedicalRecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def medical_record_params
-      params.require(:medical_record).permit(:mrec_id, :date, :problem, :pat_id, :doc_id)
+      params.require(:medical_record).permit(:mrec_id, :date, :problem, :pat_id, :doc_id, :medical_card_id)
     end
 end

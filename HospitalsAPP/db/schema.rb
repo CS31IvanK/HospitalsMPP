@@ -50,6 +50,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     t.integer "doc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "medical_card_id"
+    t.index ["medical_card_id"], name: "index_medical_records_on_medical_card_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -87,4 +89,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
   add_foreign_key "medical_cards", "doctors"
   add_foreign_key "medical_cards", "hospitals"
   add_foreign_key "medical_cards", "patients"
+  add_foreign_key "medical_records", "medical_cards"
 end
