@@ -26,14 +26,29 @@
     <%= form.text_field :problem %>
   </div>
 
-  <div>
-    <%= form.label :pat_id, style: "display: block" %>
-    <%= form.number_field :pat_id %>
+  <!--<div>
+    <#%= form.label :pat_id, style: "display: block" %>
+    <#%= form.number_field :pat_id %>
   </div>
 
   <div>
-    <%= form.label :doc_id, style: "display: block" %>
-    <%= form.number_field :doc_id %>
+    <#%= form.label :doc_id, style: "display: block" %>
+    <#%= form.number_field :doc_id %>
+  </div> -->
+  <div>
+    <%= form.label :pat_id, style: "display: block" %>
+    <%= form.select :pat_id, Patient.pluck(:pname, :pat_id), prompt: "Виберіть пацієнта" %>
+  </div>
+
+  <div>
+    <%= form.label :dock_id, style: "display: block" %>
+    <!--<#%= form.select :doc_id, Doctor.pluck(:dname, :dock_id), prompt: "Виберіть доктора" %>-->
+    <%= form.collection_select(:doc_id, Doctor.all, :dock_id, :dname, include_blank: true) %>
+  </div>
+
+  <div>
+    <%= form.label :medical_card_id, style: "display: block" %>
+    <%= form.select :medical_card_id, MedicalCard.pluck(:medical_card_id), prompt: "Виберіть медичну карту" %>
   </div>
 
   <div>

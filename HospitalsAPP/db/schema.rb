@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_31_191224) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
   create_table "doctors", force: :cascade do |t|
     t.integer "dock_id"
     t.string "dname"
@@ -32,14 +32,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_191224) do
   create_table "medical_cards", force: :cascade do |t|
     t.integer "medical_card_id"
     t.integer "patient_id"
-    t.integer "doctor_id"
+    #t.integer "doctor_id"
     t.integer "hospital_id"
-    t.string "diagnosis"
+    #t.string "diagnosis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "appointment_date"
-    t.boolean "attended", default: false
-    t.string "appointment_type"
     t.index ["doctor_id"], name: "index_medical_cards_on_doctor_id"
     t.index ["hospital_id"], name: "index_medical_cards_on_hospital_id"
     t.index ["patient_id"], name: "index_medical_cards_on_patient_id"
@@ -53,6 +50,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_191224) do
     t.integer "doc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "medical_card_id"
+    t.index ["medical_card_id"], name: "index_medical_records_on_medical_card_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -61,9 +60,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_191224) do
     t.string "padress"
     t.string "pphone"
     t.integer "age"
-    t.integer "doc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.string "record_id"
+    t.string "conclusion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "dock_id"
+    t.index ["dock_id"], name: "index_records_on_dock_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,4 +89,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_191224) do
   add_foreign_key "medical_cards", "doctors"
   add_foreign_key "medical_cards", "hospitals"
   add_foreign_key "medical_cards", "patients"
+  add_foreign_key "medical_records", "medical_cards"
 end
