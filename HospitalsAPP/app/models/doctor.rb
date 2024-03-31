@@ -1,5 +1,6 @@
 class Doctor < ApplicationRecord
   has_many :medical_cards
+  has_many :records
   #has_many :patients
   belongs_to :hospital, foreign_key: "hos_id", primary_key: "rank" #???
   #validation

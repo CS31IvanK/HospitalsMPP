@@ -32,9 +32,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
   create_table "medical_cards", force: :cascade do |t|
     t.integer "medical_card_id"
     t.integer "patient_id"
-    t.integer "doctor_id"
+    #t.integer "doctor_id"
     t.integer "hospital_id"
-    t.string "diagnosis"
+    #t.string "diagnosis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_medical_cards_on_doctor_id"
