@@ -1,5 +1,6 @@
 class MedicalCardsController < ApplicationController
   before_action :set_medical_card, only: %i[ show edit update destroy ]
+  #before_action :ensure_doctor, only: [:new, :create]
 
   # GET /medical_cards or /medical_cards.json
   def index
@@ -95,13 +96,22 @@ class MedicalCardsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_medical_card
-    @medical_card = MedicalCard.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_medical_card
+      @medical_card = MedicalCard.find(params[:id])
+    end
 
   # Only allow a list of trusted parameters through.
   def medical_card_params
     params.require(:medical_card).permit(:medical_card_id, :patient_id, :doctor_id, :hospital_id, :diagnosis, :appointment_date, :appointment_type)
+  end
+
+  private
+
+  def ensure_doctor
+    unless current_user.doctor.present?
+      flash[:alert] = "Тільки доктори можуть створювати нові записи."
+      redirect_to root_path
+    end
   end
 end

@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     t.string "spec"
     t.string "dphone"
     t.integer "hos_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,6 +38,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     #t.string "diagnosis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "appointment_date"
+    t.boolean "attended", default: false
+    t.string "appointment_type"
     t.index ["doctor_id"], name: "index_medical_cards_on_doctor_id"
     t.index ["hospital_id"], name: "index_medical_cards_on_hospital_id"
     t.index ["patient_id"], name: "index_medical_cards_on_patient_id"
@@ -62,6 +66,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
   create_table "records", force: :cascade do |t|
@@ -70,7 +76,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "dock_id"
+    t.integer "pat_id"
     t.index ["dock_id"], name: "index_records_on_dock_id"
+    t.index ["pat_id"], name: "index_records_on_pat_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,8 +94,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_093030) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "doctors", "users"
   add_foreign_key "medical_cards", "doctors"
   add_foreign_key "medical_cards", "hospitals"
   add_foreign_key "medical_cards", "patients"
   add_foreign_key "medical_records", "medical_cards"
+  add_foreign_key "patients", "users"
 end

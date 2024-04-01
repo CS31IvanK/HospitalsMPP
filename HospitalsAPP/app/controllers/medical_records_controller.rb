@@ -1,5 +1,6 @@
 class MedicalRecordsController < ApplicationController
   before_action :set_medical_record, only: %i[ show edit update destroy ]
+  before_action :ensure_doctor, only: [:new, :create]
 
   # GET /medical_records or /medical_records.json
   def index
@@ -67,4 +68,13 @@ class MedicalRecordsController < ApplicationController
     def medical_record_params
       params.require(:medical_record).permit(:mrec_id, :date, :problem, :pat_id, :doc_id, :medical_card_id)
     end
+
+  private
+
+  def ensure_doctor
+    unless current_user.doctor.present?
+      flash[:alert] = "Тільки доктори можуть створювати нові записи."
+      redirect_to root_path
+    end
+  end
 end

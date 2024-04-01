@@ -36,6 +36,8 @@
     <%= form.collection_select :hos_id, Hospital.all, :rank, :name %>
   </div>
 
+  <%= form.hidden_field :user_id %>
+
   <div>
     <%= form.submit %>
   </div>

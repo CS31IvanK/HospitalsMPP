@@ -12,7 +12,7 @@ class DoctorsController < ApplicationController
 
   # GET /doctors/new
   def new
-    @doctor = Doctor.new
+    @doctor = Doctor.new(user_id: params[:user_id])
   end
 
   # GET /doctors/1/edit
@@ -22,7 +22,7 @@ class DoctorsController < ApplicationController
   # POST /doctors or /doctors.json
   def create
     @doctor = Doctor.new(doctor_params)
-
+    #@doctor.user_id = current_user.id
     respond_to do |format|
       if @doctor.save
         format.html { redirect_to doctor_url(@doctor), notice: "Doctor was successfully created." }
@@ -65,6 +65,6 @@ class DoctorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def doctor_params
-      params.require(:doctor).permit(:dock_id, :dname, :spec, :dphone, :hos_id)
+      params.require(:doctor).permit(:dock_id, :dname, :spec, :dphone, :hos_id, :user_id)
     end
 end

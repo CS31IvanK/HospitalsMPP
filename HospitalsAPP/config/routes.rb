@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     patch :mark_attended, on: :member
     patch :mark_not_attended, on: :member
   end
-  devise_for :users
+  # devise_for :users
   resources :medical_records
   resources :patients do
     resources :medical_cards, only: [:index], controller: 'medical_cards'
@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :doctors
   resources :hospitals
   resources :records
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
 
   devise_scope :user do
