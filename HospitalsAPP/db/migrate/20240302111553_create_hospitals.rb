@@ -1,4 +1,6 @@
-class CreateHospitals < ActiveRecord::Migration[7.1]
+# frozen_string_literal: true
+
+class CreateHospitals < ActiveRecord::Migration[7.1] # rubocop:todo Style/Documentation
   def change
     create_table :hospitals do |t|
       t.integer :hid

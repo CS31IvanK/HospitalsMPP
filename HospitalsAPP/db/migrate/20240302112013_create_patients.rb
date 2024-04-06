@@ -1,4 +1,6 @@
-class CreatePatients < ActiveRecord::Migration[7.1]
+# frozen_string_literal: true
+
+class CreatePatients < ActiveRecord::Migration[7.1] # rubocop:todo Style/Documentation
   def change
     create_table :patients do |t|
       t.integer :pat_id

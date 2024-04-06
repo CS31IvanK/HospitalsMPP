@@ -1,6 +1,8 @@
-class MedicalRecordsController < ApplicationController
-  before_action :set_medical_record, only: %i[ show edit update destroy ]
-  before_action :ensure_doctor, only: [:new, :create]
+# frozen_string_literal: true
+
+class MedicalRecordsController < ApplicationController # rubocop:todo Style/Documentation
+  before_action :set_medical_record, only: %i[show edit update destroy]
+  before_action :ensure_doctor, only: %i[new create]
 
   # GET /medical_records or /medical_records.json
   def index
@@ -8,8 +10,7 @@ class MedicalRecordsController < ApplicationController
   end
 
   # GET /medical_records/1 or /medical_records/1.json
-  def show
-  end
+  def show; end
 
   # GET /medical_records/new
   def new
@@ -17,16 +18,17 @@ class MedicalRecordsController < ApplicationController
   end
 
   # GET /medical_records/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /medical_records or /medical_records.json
-  def create
+  def create # rubocop:todo Metrics/MethodLength
     @medical_record = MedicalRecord.new(medical_record_params)
 
     respond_to do |format|
       if @medical_record.save
-        format.html { redirect_to medical_record_url(@medical_record), notice: "Medical record was successfully created." }
+        format.html do
+          redirect_to medical_record_url(@medical_record), notice: 'Medical record was successfully created.'
+        end
         format.json { render :show, status: :created, location: @medical_record }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,10 +38,12 @@ class MedicalRecordsController < ApplicationController
   end
 
   # PATCH/PUT /medical_records/1 or /medical_records/1.json
-  def update
+  def update # rubocop:todo Metrics/MethodLength
     respond_to do |format|
       if @medical_record.update(medical_record_params)
-        format.html { redirect_to medical_record_url(@medical_record), notice: "Medical record was successfully updated." }
+        format.html do
+          redirect_to medical_record_url(@medical_record), notice: 'Medical record was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @medical_record }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,28 +57,27 @@ class MedicalRecordsController < ApplicationController
     @medical_record.destroy!
 
     respond_to do |format|
-      format.html { redirect_to medical_records_url, notice: "Medical record was successfully destroyed." }
+      format.html { redirect_to medical_records_url, notice: 'Medical record was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medical_record
-      @medical_record = MedicalRecord.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def medical_record_params
-      params.require(:medical_record).permit(:mrec_id, :date, :problem, :pat_id, :doc_id, :medical_card_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medical_record
+    @medical_record = MedicalRecord.find(params[:id])
+  end
 
-  private
+  # Only allow a list of trusted parameters through.
+  def medical_record_params
+    params.require(:medical_record).permit(:mrec_id, :date, :problem, :pat_id, :doc_id, :medical_card_id)
+  end
 
   def ensure_doctor
-    unless current_user.doctor.present?
-      flash[:alert] = "Тільки доктори можуть створювати нові записи."
-      redirect_to root_path
-    end
+    return if current_user.doctor.present?
+
+    flash[:alert] = 'Тільки доктори можуть створювати нові записи.'
+    redirect_to root_path
   end
 end

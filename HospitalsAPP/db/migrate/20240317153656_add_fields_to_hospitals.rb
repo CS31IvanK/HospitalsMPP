@@ -1,5 +1,7 @@
-class AddFieldsToHospitals < ActiveRecord::Migration[7.1]
-  def change
+# frozen_string_literal: true
+
+class AddFieldsToHospitals < ActiveRecord::Migration[7.1] # rubocop:todo Style/Documentation
+  def change # rubocop:todo Metrics/MethodLength
     add_column :hospitals, :rank, :integer
     add_column :hospitals, :name, :string
     add_column :hospitals, :url, :string
@@ -12,5 +14,5 @@ class AddFieldsToHospitals < ActiveRecord::Migration[7.1]
     remove_column :hospitals, :created_at, :datetime
     remove_column :hospitals, :updated_at, :datetime
     remove_column :hospitals, :phone, :string
-    end
+  end
 end

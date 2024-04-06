@@ -1,4 +1,6 @@
-class CreateMedicalCards < ActiveRecord::Migration[6.0]
+# frozen_string_literal: true
+
+class CreateMedicalCards < ActiveRecord::Migration[6.0] # rubocop:todo Style/Documentation
   def change
     create_table :medical_cards do |t|
       t.integer :medical_card_id

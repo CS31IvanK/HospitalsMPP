@@ -1,4 +1,6 @@
-class CreateDoctors < ActiveRecord::Migration[7.1]
+# frozen_string_literal: true
+
+class CreateDoctors < ActiveRecord::Migration[7.1] # rubocop:todo Style/Documentation
   def change
     create_table :doctors do |t|
       t.integer :dock_id

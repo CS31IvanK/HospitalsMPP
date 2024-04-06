@@ -1,6 +1,8 @@
-class MedicalCardsController < ApplicationController
-  before_action :set_medical_card, only: %i[ show edit update destroy ]
-  #before_action :ensure_doctor, only: [:new, :create]
+# frozen_string_literal: true
+
+class MedicalCardsController < ApplicationController # rubocop:todo Style/Documentation
+  before_action :set_medical_card, only: %i[show edit update destroy]
+  # before_action :ensure_doctor, only: [:new, :create]
 
   # GET /medical_cards or /medical_cards.json
   def index
@@ -13,37 +15,31 @@ class MedicalCardsController < ApplicationController
     @past_medical_cards = MedicalCard.where('appointment_date < ?', Time.now).order(appointment_date: :desc)
   end
 
-
   def past
     @medical_cards = MedicalCard.where('appointment_date < ?', Time.now).order(appointment_date: :desc)
     render :index
   end
 
-
   # GET /medical_cards/1 or /medical_cards/1.json
-  def show
-  end
-
+  def show; end
 
   def mark_attended
     @medical_card = MedicalCard.find(params[:id])
     if @medical_card.update(attended: true)
       render json: { attended: true }
     else
-      render json: { error: "Failed to update attendance status" }, status: :unprocessable_entity
+      render json: { error: 'Failed to update attendance status' }, status: :unprocessable_entity
     end
   end
-
 
   def mark_not_attended
     @medical_card = MedicalCard.find(params[:id])
     if @medical_card.update(attended: false)
       render json: { attended: false }
     else
-      render json: { error: "Failed to update attendance status" }, status: :unprocessable_entity
+      render json: { error: 'Failed to update attendance status' }, status: :unprocessable_entity
     end
   end
-
 
   # GET /medical_cards/new
   def new
@@ -54,8 +50,7 @@ class MedicalCardsController < ApplicationController
   end
 
   # GET /medical_cards/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /medical_cards or /medical_cards.json
   def create
@@ -63,7 +58,7 @@ class MedicalCardsController < ApplicationController
 
     respond_to do |format|
       if @medical_card.save
-        format.html { redirect_to medical_card_url(@medical_card), notice: "Medical card was successfully created." }
+        format.html { redirect_to medical_card_url(@medical_card), notice: 'Medical card was successfully created.' }
         format.json { render :show, status: :created, location: @medical_card }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -76,7 +71,7 @@ class MedicalCardsController < ApplicationController
   def update
     respond_to do |format|
       if @medical_card.update(medical_card_params)
-        format.html { redirect_to medical_card_url(@medical_card), notice: "Medical card was successfully updated." }
+        format.html { redirect_to medical_card_url(@medical_card), notice: 'Medical card was successfully updated.' }
         format.json { render :show, status: :ok, location: @medical_card }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -90,28 +85,28 @@ class MedicalCardsController < ApplicationController
     @medical_card.destroy!
 
     respond_to do |format|
-      format.html { redirect_to medical_cards_url, notice: "Medical card was successfully destroyed." }
+      format.html { redirect_to medical_cards_url, notice: 'Medical card was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_medical_card
-      @medical_card = MedicalCard.find(params[:id])
-    end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_medical_card
+    @medical_card = MedicalCard.find(params[:id])
+  end
 
   # Only allow a list of trusted parameters through.
   def medical_card_params
-    params.require(:medical_card).permit(:medical_card_id, :patient_id, :doctor_id, :hospital_id, :diagnosis, :appointment_date, :appointment_type)
+    params.require(:medical_card).permit(:medical_card_id, :patient_id, :doctor_id, :hospital_id, :diagnosis,
+                                         :appointment_date, :appointment_type)
   end
 
-  private
-
   def ensure_doctor
-    unless current_user.doctor.present?
-      flash[:alert] = "Тільки доктори можуть створювати нові записи."
-      redirect_to root_path
-    end
+    return if current_user.doctor.present?
+
+    flash[:alert] = 'Тільки доктори можуть створювати нові записи.'
+    redirect_to root_path
   end
 end
