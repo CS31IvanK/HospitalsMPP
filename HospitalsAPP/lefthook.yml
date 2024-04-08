@@ -1,0 +1,18 @@
+pre-commit:
+  commands:
+    rubocop:
+      glob: "*.rb"
+      run: rubocop -a {staged_files}
+commit-msg:
+  scripts:
+    "validate_commit_msg":
+      runner: bash
+      run: |
+        #!/bin/bash
+        COMMIT_MSG_FILE=$1
+        COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
+        COMMIT_PATTERN="^(feat|add|fix|docs|style|refactor|test|chore)(\(.+\))?: .+"
+        if [[ ! ${COMMIT_MSG} =~ ${COMMIT_PATTERN} ]]; then
+          echo "ERROR: Commit message does not match the desired format: ${COMMIT_PATTERN}"
+          exit 1
+        fi
