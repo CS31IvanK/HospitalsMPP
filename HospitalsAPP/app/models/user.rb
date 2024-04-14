@@ -10,7 +10,8 @@ class User < ApplicationRecord # rubocop:todo Style/Documentation
   has_one :doctor, foreign_key: 'dock_id', primary_key: 'id'
   has_one :patient, foreign_key: 'pat_id', primary_key: 'id' # ???
   # validates :email, format: { with: /\A[\w+\-.]+@karazin\.ua\z/, message: "must be a karazin.ua account" }
-
+  has_many :messages
+  has_many :conversations, through: :messages
   private
 
   def set_role

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Records</h1>
+
+<div id="records">
+  <!--<#% if @records.any? %>-->
+  <% @records.each do |record| %>
+    <%= render record %>
+    <p>
+      <%= link_to "Show this record", record %>
+    </p>
+      <% end%>
+  <!--<#% end %>-->
+</div>
+
+<%= link_to "New record", new_record_path %>
