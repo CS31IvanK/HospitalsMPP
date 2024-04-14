@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'chat/show', to: 'chat#show'
   resources :medical_cards do
     collection do
       get :past
