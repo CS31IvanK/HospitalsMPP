@@ -11,21 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_04_14_163127) do
-  create_table "cards", force: :cascade do |t|
-    t.integer "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-    create_table 'doctors', force: :cascade do |t|
-      t.integer 'dock_id'
-      t.string 'dname'
-      t.string 'spec'
-      t.string 'dphone'
-      t.integer 'hos_id'
-      t.integer 'user_id'
-      t.datetime 'created_at', null: false
-      t.datetime 'updated_at', null: false
-      end
   create_table "conversations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,6 +19,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_14_163127) do
     t.index ["doctor_id"], name: "index_conversations_on_doctor_id"
     t.index ["patient_id"], name: "index_conversations_on_patient_id"
   end
+
+  create_table "doctors", force: :cascade do |t|
+    t.integer "dock_id"
+    t.string "dname"
+    t.string "spec"
+    t.string "dphone"
+    t.integer "hos_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_doctors_on_user_id"
+  end
+
   create_table "hospitals", force: :cascade do |t|
     t.integer "rank"
     t.string "name"

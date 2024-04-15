@@ -105,4 +105,7 @@ body {
   background-color: #5a6268;
 }
 
-
+#chat {
+  max-height: 300px; /* Установлено ограничение высоты для чата с прокруткой */
+  overflow-y: auto;
+}

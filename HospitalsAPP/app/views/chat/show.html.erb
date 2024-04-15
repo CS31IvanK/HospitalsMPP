@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Chat</title>
+</head>
+<body>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="display-4">WebSocket Chat</h1> <!-- Заголовок с классом display-4 -->
+      <div id="chat" class="bg-light p-3 rounded">
+        <div id="current-user-id" data-user-id="<%= current_user.id %>"></div>
+      </div>
+      <input type="text" id="message-input" class="form-control mt-3" placeholder="Введите сообщение...">
+      <button id="send-button" class="btn btn-primary mt-3">Отправить</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@rails/actioncable"></script>
+<script>
+    const consumer = new ActionCable.createConsumer();
+
+    let chatChannel = null;
+
+    consumer.subscriptions.create("ChatChannel", {
+        connected() {
+            chatChannel = this;
+        },
+
+        received(data) {
+            const chat = document.querySelector('#chat');
+            const newMessage = document.createElement('p');
+            newMessage.textContent = data.message;
+            chat.appendChild(newMessage);
+        },
+    });
+
+    // Отправка сообщения на сервер при нажатии на кнопку или Enter
+    const inputField = document.querySelector('#message-input');
+    const sendButton = document.querySelector('#send-button');
+
+    sendButton.addEventListener('click', () => {
+        const messageContent = inputField.value;
+        const conversationId = 1;
+        const userId = <%= current_user.id %>;
+        chatChannel.perform('speak', { message: messageContent, conversation_id: conversationId, user_id: userId });
+        inputField.value = '';
+    });
+
+
+
+
+    inputField.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            sendButton.click();
+        }
+    });
+
+</script>
+</body>
+</html>
