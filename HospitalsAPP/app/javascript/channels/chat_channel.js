@@ -21,3 +21,16 @@ consumer.subscriptions.create("ChatChannel", {
     return this.perform('speak', { message: content });
   }
 });
+
+const submitButton = document.querySelector('#submit-button');
+const messageInput = document.querySelector('#message-input');
+const conversationSelect = document.querySelector('#conversation-select');
+
+submitButton.addEventListener('click', function() {
+  const message = messageInput.value;
+  const conversationId = conversationSelect.value;
+
+  chatChannel.speak({ message: message, conversation_id: conversationId });
+
+  messageInput.value = '';
+});

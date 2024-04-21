@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<%= form_with model: Conversation.new, local: true do |form| %>
+  <% if current_user.patient? %>
+    <%= form.label :doctor, 'Оберіть лікаря:' %>
+    <%= form.collection_select :doctor_id, Doctor.all, :id, :dname, prompt: 'Оберіть лікаря' %>
+    <%= form.hidden_field :patient_id, value: current_user.id %>
+  <% else %>
+    <%= form.label :patient, 'Оберіть пацієнта:' %>
+    <%= form.collection_select :patient_id, Patient.all, :id, :pname, prompt: 'Оберіть пацієнта' %>
+    <%= form.hidden_field :doctor_id, value: current_user.id %>
+  <% end %>
+  <%= form.submit 'Створити бесіду' %>
+<% end %>
+</body>
+</html>
