@@ -1,9 +1,13 @@
 class ChatController < ApplicationController
   #def show
     #@messages = Message.all
-    #  end
+  #end
   def show
-    @conversation = Conversation.find(params[:id])
+    #@conversation = Conversation.find(params[:id])
+    @conversation = Conversation.find_by(id: params[:id])
+    if @conversation.nil?
+      puts "WTF"
+    end
     #render json: @conversations
   end
   def new
