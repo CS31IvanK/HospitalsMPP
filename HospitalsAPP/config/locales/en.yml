@@ -29,3 +29,10 @@
 
 en:
   hello: "Hello world"
+  hospitals:
+    title: "Hospitals"
+    name: "Name"
+    rank: "Rank"
+    country: "Country"
+    city: "City"
+    visit: "Visit"

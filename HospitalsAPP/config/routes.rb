@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :conversations
   #get 'chat/show'
   get 'chat/show', to: 'chat#show'
-  get '/chat/create', to: 'chat#create'
+  get '/chat/new', to: 'chat#new'
   post '/chat/create', to: 'chat#create'
 
   resources :medical_cards do

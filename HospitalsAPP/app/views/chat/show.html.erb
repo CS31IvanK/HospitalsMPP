@@ -27,7 +27,7 @@
 
     let chatChannel = null;
 
-    consumer.subscriptions.create("ChatChannel", {
+    consumer.subscriptions.create({channel: "ChatChannel",  conversation_id: conversationId }, {
         connected() {
             chatChannel = this;
         },
@@ -46,7 +46,7 @@
 
     sendButton.addEventListener('click', () => {
         const messageContent = inputField.value;
-        const conversationId = 1;
+        const conversationId = <%= params[:id]%>;
         const userId = <%= current_user.id %>;
         chatChannel.perform('speak', { message: messageContent, conversation_id: conversationId, user_id: userId });
         inputField.value = '';

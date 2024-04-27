@@ -17,8 +17,8 @@ consumer.subscriptions.create("ChatChannel", {
     chat.appendChild(newMessage);
   },
 
-  speak: function(content) {
-    return this.perform('speak', { message: content });
+  speak: function(content, id) { //???????????
+    return this.perform('speak', { message: content, conversation_id: id });
   }
 });
 

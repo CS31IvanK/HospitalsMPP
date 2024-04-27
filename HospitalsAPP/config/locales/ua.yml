@@ -1,0 +1,9 @@
+ua:
+  hello: "Вітаю світ"
+  hospitals:
+    title: "Лікарні"
+    name: "Назва"
+    rank: "Ранг"
+    country: "Країна"
+    city: "Місто"
+    visit: "Відвідати"
