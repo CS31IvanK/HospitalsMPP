@@ -9,4 +9,8 @@ class Doctor < ApplicationRecord # rubocop:todo Style/Documentation
   # validation
   validates :dphone, format: { with: /\A?0\d{9}\z/,
                                message: 'must be a valid phone number' }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "dname", "dock_id", "dphone", "hos_id", "id", "id_value", "spec", "updated_at", "user_id"]
+  end
 end
