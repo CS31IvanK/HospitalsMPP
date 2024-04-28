@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #get 'chat/show'
   get 'chat/show', to: 'chat#show'
   get '/chat/new', to: 'chat#new'
+  get 'conversations/:id/messages', to: 'conversations#messages'
   post '/chat/create', to: 'chat#create'
 
   resources :medical_cards do

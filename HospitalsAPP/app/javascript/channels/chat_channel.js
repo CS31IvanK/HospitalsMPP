@@ -1,23 +1,24 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("ChatChannel", {
+let chatChannel = null;
+const conversationId = "<%= params[:id] %>";
+
+consumer.subscriptions.create({ channel: "ChatChannel", conversation_id: conversationId }, {
   connected() {
-    // Called when the subscription is ready for use on the server
+    chatChannel = this;
   },
-
   disconnected() {
-    // Called when the subscription has been terminated by the server
   },
-
   received(data) {
-    console.log("Received message:", data.message); // Добавляем консольный вывод
+    console.log("Received message:", data.message);
     const chat = document.querySelector('#chat');
     const newMessage = document.createElement('p');
     newMessage.textContent = data.message;
     chat.appendChild(newMessage);
-  },
 
-  speak: function(content, id) { //???????????
+    chat.scrollTop = chat.scrollHeight;
+  },
+  speak: function(content, id) {
     return this.perform('speak', { message: content, conversation_id: id });
   }
 });
@@ -30,7 +31,6 @@ submitButton.addEventListener('click', function() {
   const message = messageInput.value;
   const conversationId = conversationSelect.value;
 
-  chatChannel.speak({ message: message, conversation_id: conversationId });
-
+  chatChannel.speak(message, conversationId); // Изменено
   messageInput.value = '';
 });

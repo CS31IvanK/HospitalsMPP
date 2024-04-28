@@ -24,14 +24,13 @@
 <script src="https://cdn.jsdelivr.net/npm/@rails/actioncable"></script>
 <script>
     const consumer = new ActionCable.createConsumer();
-
     let chatChannel = null;
+    const conversationId = <%= params[:id] %>; // Добавляем conversationId
 
-    consumer.subscriptions.create({channel: "ChatChannel",  conversation_id: conversationId }, {
+    consumer.subscriptions.create({ channel: "ChatChannel", conversation_id: conversationId }, {
         connected() {
             chatChannel = this;
         },
-
         received(data) {
             const chat = document.querySelector('#chat');
             const newMessage = document.createElement('p');
@@ -40,27 +39,39 @@
         },
     });
 
-    // Отправка сообщения на сервер при нажатии на кнопку или Enter
     const inputField = document.querySelector('#message-input');
     const sendButton = document.querySelector('#send-button');
 
     sendButton.addEventListener('click', () => {
         const messageContent = inputField.value;
-        const conversationId = <%= params[:id]%>;
         const userId = <%= current_user.id %>;
         chatChannel.perform('speak', { message: messageContent, conversation_id: conversationId, user_id: userId });
         inputField.value = '';
     });
-
-
-
 
     inputField.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             sendButton.click();
         }
     });
-
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const chat = document.querySelector('#chat');
+        const conversationId = <%= @conversation.id %>;
+        fetch(`/conversations/${conversationId}/messages`)
+          .then(response => response.json())
+          .then(data => {
+              console.log("Received messages:", data); // Добавим отладочное сообщение
+              data.forEach(message => {
+                  const newMessage = document.createElement('p');
+                  newMessage.textContent = message.body;
+                  chat.appendChild(newMessage);
+              });
+              // Прокрутка чата вниз после загрузки всех сообщений
+              chat.scrollTop = chat.scrollHeight;
+          });
+    });
 </script>
 </body>
 </html>

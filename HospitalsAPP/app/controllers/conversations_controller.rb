@@ -9,6 +9,11 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new
   end
 
+  def messages
+    conversation = Conversation.find(params[:id])
+    messages = conversation.messages
+    render json: messages
+  end
   def create
     @conversation = Conversation.find_by(doctor_id: params[:doctor_id], patient_id: params[:patient_id])
     if @conversation.nil?

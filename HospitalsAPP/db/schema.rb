@@ -37,12 +37,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_150744) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "cards", force: :cascade do |t|
-    t.integer "card_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "conversations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
