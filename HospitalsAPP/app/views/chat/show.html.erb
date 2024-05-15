@@ -59,19 +59,25 @@
     document.addEventListener('DOMContentLoaded', () => {
         const chat = document.querySelector('#chat');
         const conversationId = <%= @conversation.id %>;
-        fetch(`/conversations/${conversationId}/messages`)
-          .then(response => response.json())
-          .then(data => {
-              console.log("Received messages:", data); // Добавим отладочное сообщение
-              data.forEach(message => {
-                  const newMessage = document.createElement('p');
-                  newMessage.textContent = message.body;
-                  chat.appendChild(newMessage);
+
+        function fetchMessages() {
+            fetch(`/conversations/${conversationId}/messages`)
+              .then(response => response.json())
+              .then(data => {
+                  console.log("Received messages:", data);
+                  chat.innerHTML = '';
+                  data.forEach(message => {
+                      const newMessage = document.createElement('p');
+                      newMessage.textContent = message.body;
+                      chat.appendChild(newMessage);
+                  });
+                  chat.scrollTop = chat.scrollHeight;
               });
-              // Прокрутка чата вниз после загрузки всех сообщений
-              chat.scrollTop = chat.scrollHeight;
-          });
+        }
+        fetchMessages();
+        setInterval(fetchMessages, 500);
     });
 </script>
+
 </body>
 </html>

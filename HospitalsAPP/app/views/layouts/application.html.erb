@@ -33,6 +33,7 @@
           <h1 class="display-4"><a href="/" style="color: #fff; text-decoration: none;">HOSPITALAPP</a></h1>
           <% if user_signed_in? %>
             <div>
+              <%= link_to "Чат", "http://127.0.0.1:3000/chat/show?id=1", class: "btn btn-primary mr-2" %>
                 <span class="alert alert-success" role="alert">
                   Залогований користувач: <%= current_user.email %>
                 </span>
